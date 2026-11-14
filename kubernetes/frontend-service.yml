@@ -6,3 +6,16 @@
 #   [ ] nodePort: 30080       (same indentation as port)
 #
 # Before apply: kubectl apply --dry-run=server -f kubernetes/frontend-service.yml
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: shoplist
+spec:
+  selector:
+    app: postgres
+  ports:
+    - port: 5432
+      targetPort: 5432
